@@ -1,0 +1,11 @@
+- Create a repo
+- init project
+- find what is node_modules, package.json, package-lock.json, 
+- install express
+- create a server
+- listen to port 4000
+- write request handlers for /dashboard
+- install nodemon and update scripts in package.json file
+- what are dependencies
+- what is use of -g while npm install
+- difference between ^ & ~
