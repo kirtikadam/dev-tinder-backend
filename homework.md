@@ -19,3 +19,8 @@
 - ORDER OF THE ROUTES MATTER A LOT
 - Install postman and make workspace, collection > test api call
 - write login to handle GET, POST, PATCH, DELETE API calls and test on postman
+- Explore routing and use of ?, +, (), * in routes
+- Use of regex in routes /a/, /.fly$/
+- Reading the query params 
+- Readinf the dynamic routes
+- Express documentation for more info on the routes
