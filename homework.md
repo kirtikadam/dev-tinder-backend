@@ -9,3 +9,13 @@
 - what are dependencies
 - what is use of -g while npm install
 - difference between ^ & ~
+
+
+- init git
+- gitignore
+- create a remote repo on github
+- push all code to remote
+- route and route extensions /test /test/2 /
+- ORDER OF THE ROUTES MATTER A LOT
+- Install postman and make workspace, collection > test api call
+- write login to handle GET, POST, PATCH, DELETE API calls and test on postman
