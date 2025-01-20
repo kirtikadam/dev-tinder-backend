@@ -18,9 +18,19 @@
 - route and route extensions /test /test/2 /
 - ORDER OF THE ROUTES MATTER A LOT
 - Install postman and make workspace, collection > test api call
-- write login to handle GET, POST, PATCH, DELETE API calls and test on postman
+- write logic to handle GET, POST, PATCH, DELETE API calls and test on postman
 - Explore routing and use of ?, +, (), * in routes
 - Use of regex in routes /a/, /.fly$/
 - Reading the query params 
-- Readinf the dynamic routes
+- Reading the dynamic routes
 - Express documentation for more info on the routes
+
+
+- try multiple route handlers ---> aka middlewares
+- next()
+- next function and errors along with res.send()
+- app.use("/route", rH, [rH2, rH3], rH4, rH5)
+NOTE  -  API call goes through a chain of middlewares until res is send by the route handler
+      - Main job of express js is to get request from client and send response as soon as possible
+- What is middleware?
+- How express JS handles request behind the scenes
