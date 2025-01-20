@@ -47,28 +47,51 @@ const app = express();
 //   res.send("Hello...!!");
 // });
 
-
 //-----------------------------MIDDLEWARE----------------------------------
-app.use(
-  "/user",
-  (req, res, next) => {
-    //middleware
-    console.log("1st handler called");
-    next(); // provided by express JS
-    // res.send("Response");
-  }
-);
+// app.use(
+//   "/user",
+//   (req, res, next) => {
+//     //middleware
+//     console.log("1st handler called");
+//     next(); // provided by express JS
+//     // res.send("Response");
+//   }
+// );
 
-app.get("/user", (req, res, next) => {
-  //middleware
-  console.log("handling /user route")
-  next()
-}, (req, res, next) => {
-  // route handler
-  res.send("1st route handler")
-}, (req, res, next) => {
-  res.send("2nd route handler")
+// app.get("/user", (req, res, next) => {
+//   //middleware
+//   console.log("handling /user route")
+//   next()
+// }, (req, res, next) => {
+//   // route handler
+//   res.send("1st route handler")
+// }, (req, res, next) => {
+//   res.send("2nd route handler")
+// })
+
+//-----------------------------WHY MIDDLEWARE REQUIRED----------------------------------
+const { adminAuth, userAuth } = require("./middlewares/auth");
+
+// Handle auth middleware for all requests GET, POST, PATCH, DELETE
+app.use("/admin", adminAuth);
+
+app.post("/login", (req, res) => {
+  res.send("Logged in successfully")
 })
+
+app.get("/user/data", userAuth, (req, res) => {
+  res.send("Getting user data")
+})
+
+app.get("/admin/getAllData", (req, res, next) => {
+  // Logic of fetching all data from DB
+  res.send("All data sent");
+});
+
+app.get("/admin/deleteUser", (req, res, next) => {
+  // Logic delete user
+  res.send("Deleted User");
+});
 
 app.listen(4000, () => {
   console.log("Server up...");

@@ -32,5 +32,8 @@
 - app.use("/route", rH, [rH2, rH3], rH4, rH5)
 NOTE  -  API call goes through a chain of middlewares until res is send by the route handler
       - Main job of express js is to get request from client and send response as soon as possible
-- What is middleware?
+- What is middleware? why do we need it?
 - How express JS handles request behind the scenes
+- difference between app.use vs app.all
+- write dummy auth middleware for admin
+- write dummy auth middleware for all user routes except /login
