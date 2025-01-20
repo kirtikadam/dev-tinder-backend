@@ -70,28 +70,42 @@ const app = express();
 // })
 
 //-----------------------------WHY MIDDLEWARE REQUIRED----------------------------------
-const { adminAuth, userAuth } = require("./middlewares/auth");
+// const { adminAuth, userAuth } = require("./middlewares/auth");
 
-// Handle auth middleware for all requests GET, POST, PATCH, DELETE
-app.use("/admin", adminAuth);
+// // Handle auth middleware for all requests GET, POST, PATCH, DELETE
+// app.use("/admin", adminAuth);
 
-app.post("/login", (req, res) => {
-  res.send("Logged in successfully")
-})
+// app.post("/login", (req, res) => {
+//   res.send("Logged in successfully")
+// })
 
-app.get("/user/data", userAuth, (req, res) => {
+// app.get("/user/data", userAuth, (req, res) => {
+//   res.send("Getting user data")
+// })
+
+// app.get("/admin/getAllData", (req, res, next) => {
+//   // Logic of fetching all data from DB
+//   res.send("All data sent");
+// });
+
+// app.get("/admin/deleteUser", (req, res, next) => {
+//   // Logic delete user
+//   res.send("Deleted User");
+// });
+
+
+//-----------------------------ERROR HANDLING----------------------------------
+
+app.get("/getUserData", (req, res) => {
+  throw new Error("ERROR!!")
   res.send("Getting user data")
 })
 
-app.get("/admin/getAllData", (req, res, next) => {
-  // Logic of fetching all data from DB
-  res.send("All data sent");
-});
-
-app.get("/admin/deleteUser", (req, res, next) => {
-  // Logic delete user
-  res.send("Deleted User");
-});
+app.use("/", (err, req, res, next) => {
+  if(err) {
+    res.status(500).send("Something went wrong!")
+  }
+})
 
 app.listen(4000, () => {
   console.log("Server up...");

@@ -37,3 +37,4 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - difference between app.use vs app.all
 - write dummy auth middleware for admin
 - write dummy auth middleware for all user routes except /login
+- error handling using app.use('/', (err, req, res, next)=>{})
