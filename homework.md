@@ -38,3 +38,13 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - write dummy auth middleware for admin
 - write dummy auth middleware for all user routes except /login
 - error handling using app.use('/', (err, req, res, next)=>{})
+
+
+- Create free cluster on MongoDB official website (Mongo Atlas)
+- Install Mongoose library
+- Connect your app to database connectionURL:/devTinder 
+- call connectDB function and connect to database and then start listening to the port 4000
+- NOTE : schema - identity of collection documents
+- create a userSchema & userModal
+- /signup API to add data to DB
+- Push some documents using API - make post api call from postman
