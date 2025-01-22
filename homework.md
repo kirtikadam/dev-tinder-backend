@@ -48,3 +48,8 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - create a userSchema & userModal
 - /signup API to add data to DB
 - Push some documents using API - make post api call from postman
+
+- difference between json and javascript object
+- add the express.json() middleware to your application
+- make signup API dynamic to receive data from end user
+- 
