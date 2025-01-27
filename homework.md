@@ -52,4 +52,7 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - difference between json and javascript object
 - add the express.json() middleware to your application
 - make signup API dynamic to receive data from end user
-- 
+- user.findOne with duplicate email ids, findout which object is returned -- // oldest object is returned
+- API - get user by email
+- API - get feed - all users  from the database
+- API - get user using findById method 
