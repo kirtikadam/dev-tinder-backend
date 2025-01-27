@@ -56,3 +56,9 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - API - get user by email
 - API - get feed - all users  from the database
 - API - get user using findById method 
+- API - create delete /user api
+- difference between PATCH & PUT
+- API - update user data
+- Explore mongoose documenatation for Model
+- what are option in a model.findOneAndUpdate
+- API - upated user with emailId
