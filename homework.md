@@ -62,3 +62,10 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - Explore mongoose documenatation for Model
 - what are option in a model.findOneAndUpdate
 - API - upated user with emailId
+
+- Explore schema type options from the documentation
+- add a required, unique, min, max, minLength, maxLenght, default, custom validate function for gender, trim, improve DB schema
+- add timestamps
+- add required validations
+- Data Sanitizatation API level validations on PATCH and POST api
+- install validator and explore the library and use it in code

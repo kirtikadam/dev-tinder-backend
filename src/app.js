@@ -14,7 +14,7 @@ app.post("/signup", async (req, res) => {
     await user.save(); // data will be saved to DB & returns a promise
     res.send("User added successfully!");
   } catch (err) {
-    res.status(400).send("Error adding user ");
+    res.status(400).send("Error adding user " + err.message);
   }
 });
 
@@ -28,7 +28,7 @@ app.get("/user", async (req, res) => {
       res.status(400).send("User not found");
     }
   } catch (err) {
-    res.status(400).send("Error getting user", +err.message);
+    res.status(400).send("Error getting user " + err.message);
   }
 });
 
@@ -38,7 +38,7 @@ app.get("/feed", async (req, res) => {
     const user = await User.find({});
     res.send(user);
   } catch (err) {
-    res.status(400).send("Something went wrong!", +err.message);
+    res.status(400).send("Something went wrong: " + err.message);
   }
 });
 
@@ -48,7 +48,7 @@ app.delete("/user", async (req, res) => {
     await User.findByIdAndDelete(req.body.userId);
     res.send("User deleted successfully");
   } catch (err) {
-    res.status(400).send("Something went wrong!");
+    res.status(400).send("Something went wrong: " + err.message);
   }
 });
 
@@ -60,7 +60,7 @@ app.delete("/user", async (req, res) => {
 //     await User.findByIdAndUpdate({ _id: userId }, data);
 //     res.send("User updated successfully");
 //   } catch (err) {
-//     res.status(400).send("Something went wrong!");
+//     res.status(400).send("Something went wrong: " + err.message);
 //   }
 // });
 
@@ -68,11 +68,25 @@ app.delete("/user", async (req, res) => {
 app.patch("/user", async (req, res) => {
   const email = req.body.emailId;
   const data = req.body;
+
   try {
-    await User.findOneAndUpdate({ emailId: email }, data);
+    const ALLOWED_UPDATE = ["photoURL", "about", "age", "lastName", "skills"];
+
+    const isUpdateAllowed = Object.keys(data).every((k) =>
+      ALLOWED_UPDATE.includes(k)
+    );
+    if (!isUpdateAllowed) {
+      throw new Error("Update Not Allowed!");
+    }
+    if (data?.skills.length > 10) {
+      throw new Error("Cannot add more than 10 skills");
+    }
+    await User.findOneAndUpdate({ emailId: email }, data, {
+      runValidators: true,
+    });
     res.send("User updated successfully");
   } catch (err) {
-    res.status(400).send("Something went wrong!");
+    res.status(400).send("Update Failed: " + err?.message);
   }
 });
 
