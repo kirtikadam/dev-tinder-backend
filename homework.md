@@ -69,3 +69,9 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - add required validations
 - Data Sanitizatation API level validations on PATCH and POST api
 - install validator and explore the library and use it in code
+- NEVER TRUST the req.body - malicious data can come from here!
+
+- Validate data in signup API
+- Install bcrypt package
+- Create passwordHash using bcrypt.hash & save user with encrypted password
+- Create login API - validate email, compare password and throw error is invalid
