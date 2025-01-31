@@ -75,3 +75,12 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - Install bcrypt package
 - Create passwordHash using bcrypt.hash & save user with encrypted password
 - Create login API - validate email, compare password and throw error is invalid
+
+- install cookie-parser, jsonwebtoken
+- send dummy cookie to user
+- create profile API and check if you get the cookie back
+- in login API after email and password validation, create a JWT token 
+- read cookies inside profile API and find the logged in user
+- user auth middleware
+- add middleware in profile API and a new send connection request api
+- set and test expiry of token and cookies to 7 days
