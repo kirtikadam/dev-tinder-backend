@@ -94,3 +94,8 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - create routes folder for managing auth, profile, request routers
 - create authRouter, profileRouter, requestRouter
 - import these router in app.js and recheck the API's
+- create post logout api
+- create patch profile/edit api
+- create patch profile/password api --- forgot password api
+- test all apis
+- Make sure you validate all data in every POST, PATCH apis
