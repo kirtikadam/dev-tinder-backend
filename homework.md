@@ -86,3 +86,11 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - set and test expiry of token and cookies to 7 days
 - create user schema method to getJWT()
 - create user schema method to compare password
+
+- Explore tinder APIs
+- create list of all APIs you can think of in devTinder
+- group multiple routes under respective router
+- read documentation for express.Router()
+- create routes folder for managing auth, profile, request routers
+- create authRouter, profileRouter, requestRouter
+- import these router in app.js and recheck the API's
