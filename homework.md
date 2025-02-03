@@ -84,3 +84,5 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - user auth middleware
 - add middleware in profile API and a new send connection request api
 - set and test expiry of token and cookies to 7 days
+- create user schema method to getJWT()
+- create user schema method to compare password

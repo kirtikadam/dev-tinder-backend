@@ -4,9 +4,8 @@ const app = express();
 const User = require("./models/user");
 const { validateSignUpData, validateLoginData } = require("./utils/validation");
 const bcrypt = require("bcrypt");
-const serverConfig = require("./config/index");
 const cookieParser = require("cookie-parser");
-const jwt = require("jsonwebtoken");
+
 const { userAuth } = require("./middlewares/auth");
 
 app.use(express.json());
@@ -48,12 +47,12 @@ app.post("/login", async (req, res) => {
       throw new Error("Invalid credentials");
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = await user.validatePassword(password)
     if (isPasswordValid) {
-      const token = await jwt.sign({ _id: user._id }, serverConfig.privateKey, {
-        expiresIn: "7d",
+      const token = await user.getJWT();
+      res.cookie("token", token, {
+        expires: new Date(Date.now() + 8 * 3600000),
       });
-      res.cookie("token", token, {expires: new Date(Date.now() + 8 * 3600000)});
       res.send("Login successful");
     } else {
       throw new Error("Invalid credentials");
