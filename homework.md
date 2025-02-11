@@ -99,3 +99,23 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - create patch profile/password api --- forgot password api
 - test all apis
 - Make sure you validate all data in every POST, PATCH apis
+
+- Create connection request schema
+- connection request API
+- validations
+- $or & $and - logical queries - MongoDB
+- Schema.pre("save") functions
+- Indexing in MongoDB
+- Why to we need index - Adv and disadv of indexes
+- Read - https://www.mongodb.com/docs/v5.0/core/index-compound/
+- why not to create unnecessary indexes
+- ALWAYS THINK ABOUT CORNER CASES
+
+- write code with proper validations for - /request/review/:status/:requestId
+- POST API vs GET API thought process
+- How can a attacker exploit your post api - send random data in api and you put it into database - user can enter wrong data into DB
+- verify each and everything that is coming in from a post api
+- in GET API -  send only allowed data, make sure user is authorized to get the data i.e. loggedin user is verified
+- ref & populate - mongoose (replacement for joins)
+- create api for /user/request
+- create api for /user/connections
