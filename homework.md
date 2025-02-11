@@ -119,3 +119,7 @@ NOTE  -  API call goes through a chain of middlewares until res is send by the r
 - ref & populate - mongoose (replacement for joins)
 - create api for /user/request
 - create api for /user/connections
+
+- feed api
+- explore $nin, $ne, select method etc - comparison queries - quesry operators
+- Pagination
