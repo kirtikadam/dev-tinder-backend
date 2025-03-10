@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // returns a promise so add in try catch
 const connetDB = async () => {
   await mongoose.connect(
-    "mongodb+srv://kadamkirti:RSAOEJhwKW4AyWk2@node1.nmg9s.mongodb.net/devTinder"
+    "mongodb+srv://kadamkirti:1MPfJpehpcXOZNkg@node1.nmg9s.mongodb.net/devTinder"
   );
 };
 
