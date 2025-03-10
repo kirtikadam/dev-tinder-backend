@@ -8,7 +8,7 @@ const userAuth = async (req, res, next) => {
     // Read token from req cokies
     const { token } = req.cookies;
     if (!token) {
-      throw new Error("Invalid token");
+      return res.status(401).send("Invalid token. Please re-login!")
     }
 
     // Validate token

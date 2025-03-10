@@ -27,8 +27,12 @@ authRouter.post("/signup", async (req, res) => {
       password: passwordHash,
     }); // creating a new instance of the user model
 
-    await user.save(); // data will be saved to DB & returns a promise
-    res.send("User added successfully");
+    const data = await user.save(); // data will be saved to DB & returns a promise
+    const token = await user.getJWT();
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 8 * 3600000),
+    });
+    res.json({ message: "User added successfully", data: data });
   } catch (err) {
     res.status(400).send("ERROR : " + err.message);
   }
@@ -51,7 +55,7 @@ authRouter.post("/login", async (req, res) => {
       res.cookie("token", token, {
         expires: new Date(Date.now() + 8 * 3600000),
       });
-      res.send("Login successful");
+      res.send(user);
     } else {
       throw new Error("Invalid credentials");
     }
